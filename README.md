@@ -1,11 +1,11 @@
 # Hot Star Responsive Clone
 
-Nice design of a responsive Disney Plus+ UI CLone 🥗.
+Nice design of a responsive OTT Platform
 
 ## Tools
 
 HTML, Css, Js, VS Code.
 
 
-![Screenshot](images/preview.jpg)
+
 
