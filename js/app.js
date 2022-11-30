@@ -79,14 +79,22 @@ videoCards.forEach( item => {
 
 const tmdbKey = "api_key=8d161379f654c57bcc85080c93e2ac4f";
 const url = "https://api.themoviedb.org/3"
-const recommended_url = `${url}/discover/movie?sort_by=popularity.desc&${tmdbKey}`
-const drama_url = url + "/discover/movie?with_genres=18&primary_release_year=2022&" + tmdbKey
+const recommended_url =  url + "/trending/movie/week?" + tmdbKey
+const drama_url = url + "/discover/movie?with_genres=18&include_adult=false&primary_release_year=2021&" + tmdbKey
+const recommended_url1 =  url + "/discover/movie?with_genres=35&include_adult=false&primary_release_year=2021&" + tmdbKey
+const drama_url1 =  url + "/discover/movie?with_genres=27&include_adult=false&primary_release_year=2020&" + tmdbKey
 
 function getRecommendedMovies(url) {
     fetch(url)
         .then(res => res.json()).then(data => {
             // console.log(data.results)
             showMovies(data.results, ".recommended-list")
+        })
+}
+function getRecommendedTV(url) {
+    fetch(url)
+        .then(res => res.json()).then(data => {
+            // console.log(data.results)
             showMovies(data.results, ".recommended-list-1")
         })
 }
@@ -95,11 +103,20 @@ function getDramaMovies(url) {
         .then(res => res.json()).then(data => {
             // console.log(data.results)
             showMovies(data.results, ".drama-list")
+        })
+}
+function getDramaTV(url) {
+    fetch(url)
+        .then(res => res.json()).then(data => {
+            // console.log(data.results)
+
             showMovies(data.results, ".drama-list-1")
         })
 }
 getRecommendedMovies(recommended_url)
 getDramaMovies(drama_url)
+getRecommendedTV(recommended_url1)
+getDramaTV(drama_url1)
 
 async function showMovies(data, className) {
     data.forEach(el => {
@@ -111,16 +128,14 @@ async function showMovies(data, className) {
         img.src = `https://image.tmdb.org/t/p/original${el.poster_path}`
         img.classList.add('card-img')
         let div2 = document.createElement('div')
-        div2.classList.add('card-body')
-        let h2 = document.createElement("h2")
-        h2.classList.add('name')
+        div2.classList.add('descriptions')
+        let h2 = document.createElement("h1")
         h2.innerText = el.title
-        let h6 = document.createElement("h6")
-        h6.classList.add('des')
-        h6.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing"
+        let h6 = document.createElement("p")
+        h6.innerText = el.overview
         let button = document.createElement("button")
         button.classList.add('watchlist-btn')
-        button.innerText = `+   Add to Watchlist`
+        button.innerText = `Play on Youtube`
         div2.append(h2, h6, button)
         div3.append(img, div2)
         div.append(div3)

@@ -14,7 +14,7 @@
 body{
     width: 100%;
     /* background: #0c111b; */
-    background: linear-gradient(to bottom, #97bbff, #dddee1 70%);
+    background: linear-gradient(to bottom, #97bbff, #889acf 70%);
     position: relative;
     font-family: 'Roboto', sans-serif;
 }
@@ -213,21 +213,22 @@ body{
 }
 
 .title{
-    color: white;
+    color: black;
     opacity: 0.9;
     padding-left: 4%;
-    font-size: 22px;
+    font-size: 42px;
     font-weight: 500;
+    font-family: 'Barriecito';
 }
 
 
 .title {
-    color: rgb(255, 255, 255);
+    color: black;
     opacity: 0.9;
     padding-left: 40px;
     padding-top: 20px;
     text-transform: capitalize;
-    font-size: 24px;
+    font-size: 44px;
     font-weight: 600;
 }
 
@@ -239,7 +240,7 @@ body{
     transition: .5s;   
 }
 .movie-cards{
-    height: 350px;
+    height: 550px;
     padding:0 30px;
     display: flex;
     align-items: center;
@@ -251,7 +252,7 @@ body{
     position: relative;
     width: 92%;
     padding-left: 10px;
-    height: 300px;
+    height: 400px;
     display: flex;    
     margin: 0 auto;
     align-items: center;
@@ -266,8 +267,8 @@ body{
 .card {
     position: relative;
     min-width: 150px;
-    width: 210px;
-    height: 280px;
+    width: 250px;
+    height: 380px;
     border-radius: 5px;
     overflow: hidden;
     margin-right: 10px;
@@ -276,48 +277,64 @@ body{
 
 .card-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height:100%;
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
 }
-
-.card:hover {
-    transform: scale(1.23);
-    z-index: 9;
-}
-
-.card:hover .card-body {
-    opacity: 1;
-}
-
-.card-body {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
+.descriptions{
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background: linear-gradient(to bottom, rgba(4, 8, 15, 0), #192133 90%);
-    padding: 10px;
-    transition: 0.5s;
+    top:0px;
+    left:0px;
+    background-color: rgba(255,255,255,.7);
+    width:100%;
+    height:100%;
+    transition: all .7s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    clip-path: circle(0% at 100% 100%);
 }
-
-.name {
-    color: white;
+.card:hover .descriptions{
+    left:0px;
+    transition: all .7s ease-in-out;
+    clip-path: circle(75%);
+}
+.card:hover{
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+    transform: scale(1.13);
+}
+.card:hover img{
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    transform: scale(1.6) rotate(20deg);
+    filter: blur(3px);
+}
+.card h1{
+    color: #ff3838;
+    letter-spacing: 1px;
+    margin: 0px;
+    font-size:15px !important;
+}
+.card p{
+    line-height: 24px;
+    height: 70%;
+    font-size:13px !important;
+}
+.card button{
+    width: fit-content;
+    height: 40px;
+    cursor: pointer;
+    border-style: none;
+    background-color: #ff3838;
+    color:#fff;
     font-size: 15px;
-    font-weight: 600;
-    text-transform: capitalize;
-    margin-top: 70%;
-
+    outline: none;
+    box-shadow: 0px 2px 3px rgba(0,0,0,.4);
+    transition: all .5s ease-in-out;
+}
+.card button:hover{
+    transform: scale(.95) translateX(-5px);
+    transition: all .5s ease-in-out;
 }
 
-.des {
-    color: white;
-    opacity: 0.8;
-    margin: 5px 0;
-    font-size: 12px;
-    font-weight: 600;
-}
 
 .watchlist-btn {
     position: relative;
